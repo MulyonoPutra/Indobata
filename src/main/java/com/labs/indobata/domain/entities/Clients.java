@@ -1,12 +1,12 @@
 package com.labs.indobata.domain.entities;
 
-import lombok.*;
-
+import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import lombok.*;
 
-@Getter @Setter
+@Getter
+@Setter
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -15,29 +15,28 @@ import java.io.Serializable;
 @Table(name = "clients")
 public class Clients implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @NotNull
-    @Column(name = "name", nullable = false)
-    private String name;
+  @NotNull
+  @Column(name = "name", nullable = false)
+  private String name;
 
+  @Column(name = "address", nullable = false)
+  private String address;
 
-    @Column(name = "address", nullable = false)
-    private String address;
+  @Lob
+  @NotNull
+  @Column(name = "url", nullable = false)
+  private String url;
 
-    @Lob
-    @NotNull
-    @Column(name = "url", nullable = false)
-    private String url;
+  @Lob
+  @Column(name = "images", nullable = false)
+  private byte[] images;
 
-    @Lob
-    @Column(name = "images", nullable = false)
-    private byte[] images;
-
-    @Column(name = "images_content_type", nullable = false)
-    private String imagesContentType;
+  @Column(name = "images_content_type", nullable = false)
+  private String imagesContentType;
 }

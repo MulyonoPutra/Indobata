@@ -1,9 +1,8 @@
 package com.labs.indobata.domain.entities;
 
-import lombok.*;
-
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -15,29 +14,29 @@ import java.io.Serializable;
 @Table(name = "product")
 public class Product implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String productName;
+  private String productName;
 
-    private String description;
+  private String description;
 
-    private String sku;
+  private String sku;
 
-    private String size;
+  private String size;
 
-    private String price;
+  private String price;
 
-    @Lob
-    @Column(name = "images", nullable = false)
-    private byte[] images;
+  @Lob
+  @Column(name = "images", nullable = false)
+  private byte[] images;
 
-    @Column(name = "images_content_type", nullable = false)
-    private String imagesContentType;
+  @Column(name = "images_content_type", nullable = false)
+  private String imagesContentType;
 
-    @ManyToOne
-    private Category category_product;
+  @ManyToOne
+  private Category category_product;
 }

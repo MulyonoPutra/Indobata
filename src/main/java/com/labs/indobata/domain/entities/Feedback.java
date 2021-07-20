@@ -1,11 +1,9 @@
 package com.labs.indobata.domain.entities;
 
-
-import lombok.*;
-
+import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import lombok.*;
 
 @Getter
 @Setter
@@ -15,24 +13,24 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 @Table(name = "clients")
-public class Feedback implements Serializable  {
+public class Feedback implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @NotNull
-    @Column(name = "name", nullable = false)
-    private String name;
+  @NotNull
+  @Column(name = "name", nullable = false)
+  private String name;
 
-    @NotNull
-    @Column(name = "email", nullable = false)
-    private String email;
+  @NotNull
+  @Column(name = "email", nullable = false)
+  private String email;
 
-    @Lob
-    @NotNull
-    @Column(name = "messages", nullable = false)
-    private String messages;
+  @Lob
+  @NotNull
+  @Column(name = "messages", nullable = false)
+  private String messages;
 }

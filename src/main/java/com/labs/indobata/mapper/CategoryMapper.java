@@ -9,8 +9,8 @@ import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring", uses = {})
 public interface CategoryMapper extends EntityMapper<CategoryDTO, Category> {
-    @Named("id")
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id", source = "id")
-    CategoryDTO toDtoId(Category category);
+  @Named("id")
+  @BeanMapping(ignoreByDefault = true)
+  @Mapping(target = "id", source = "id")
+  CategoryDTO toDtoId(Category category);
 }

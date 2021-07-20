@@ -1,8 +1,8 @@
 package com.labs.indobata.domain.dto;
 
-import lombok.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import javax.validation.constraints.NotNull;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,9 +12,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class CategoryDTO implements Serializable {
 
-    private Long id;
+  private Long id;
 
-    @NotNull
-    private String name;
-
+  @NotNull
+  private String name;
 }

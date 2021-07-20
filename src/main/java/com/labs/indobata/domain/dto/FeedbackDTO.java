@@ -1,9 +1,8 @@
 package com.labs.indobata.domain.dto;
 
-import lombok.*;
-
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
+import lombok.*;
 
 @Getter
 @Setter
@@ -13,15 +12,15 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class FeedbackDTO {
 
-    private Long id;
+  private Long id;
 
-    @NotNull
-    private String name;
+  @NotNull
+  private String name;
 
-    @NotNull
-    private String email;
+  @NotNull
+  private String email;
 
-    @Lob
-    @NotNull
-    private String messages;
+  @Lob
+  @NotNull
+  private String messages;
 }

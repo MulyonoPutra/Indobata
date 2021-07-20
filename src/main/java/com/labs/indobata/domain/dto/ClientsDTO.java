@@ -1,8 +1,8 @@
 package com.labs.indobata.domain.dto;
 
-import lombok.*;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,20 +12,19 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class ClientsDTO {
 
-    private Long id;
+  private Long id;
 
-    @NotNull
-    private String name;
+  @NotNull
+  private String name;
 
-    private String address;
+  private String address;
 
-    @Lob
-    @NotNull
-    private String url;
+  @Lob
+  @NotNull
+  private String url;
 
-    @Lob
-    private byte[] images;
+  @Lob
+  private byte[] images;
 
-    private String imagesContentType;
-
+  private String imagesContentType;
 }

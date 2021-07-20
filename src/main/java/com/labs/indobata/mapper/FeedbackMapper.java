@@ -9,10 +9,8 @@ import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring", uses = {})
 public interface FeedbackMapper extends EntityMapper<FeedbackDTO, Feedback> {
-
-    @Named("id")
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id", source = "id")
-    Feedback toDtoId(Feedback feedback);
-
+  @Named("id")
+  @BeanMapping(ignoreByDefault = true)
+  @Mapping(target = "id", source = "id")
+  Feedback toDtoId(Feedback feedback);
 }
