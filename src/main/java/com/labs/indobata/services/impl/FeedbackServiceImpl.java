@@ -28,10 +28,7 @@ public class FeedbackServiceImpl implements FeedbackService {
   /**
    * A Constructor
    */
-  public FeedbackServiceImpl(
-    FeedbackRepository feedbackRepository,
-    FeedbackMapper feedbackMapper
-  ) {
+  public FeedbackServiceImpl(FeedbackRepository feedbackRepository, FeedbackMapper feedbackMapper) {
     this.feedbackRepository = feedbackRepository;
     this.feedbackMapper = feedbackMapper;
   }
@@ -48,16 +45,10 @@ public class FeedbackServiceImpl implements FeedbackService {
   public Optional<FeedbackDTO> partialUpdate(FeedbackDTO feedbackDTO) {
     log.debug("Request to partially update Feedback : {}", feedbackDTO);
 
-    return feedbackRepository
-      .findById(feedbackDTO.getId())
-      .map(
-        existingFeedback -> {
-          feedbackMapper.partialUpdate(existingFeedback, feedbackDTO);
-          return existingFeedback;
-        }
-      )
-      .map(feedbackRepository::save)
-      .map(feedbackMapper::toDto);
+    return feedbackRepository.findById(feedbackDTO.getId()).map(existingFeedback -> {
+      feedbackMapper.partialUpdate(existingFeedback, feedbackDTO);
+      return existingFeedback;
+    }).map(feedbackRepository::save).map(feedbackMapper::toDto);
   }
 
   @Override

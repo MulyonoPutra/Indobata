@@ -35,7 +35,10 @@ public class ProductController {
 
   private final ProductRepository productRepository;
 
-  public ProductController(ProductService productService, ProductRepository productRepository) {
+  public ProductController(
+    ProductService productService,
+    ProductRepository productRepository
+  ) {
     this.productService = productService;
     this.productRepository = productRepository;
   }
@@ -111,8 +114,10 @@ public class ProductController {
    */
   @PutMapping("/{id}")
   public ResponseEntity<ProductDTO> updateProduct(
-          @PathVariable(value = "id", required = false) final Long id, @Valid @RequestBody ProductDTO productDTO) throws BadException {
-
+    @PathVariable(value = "id", required = false) final Long id,
+    @Valid @RequestBody ProductDTO productDTO
+  )
+    throws BadException {
     log.debug("REST request to update Category : {}, {}", id, productDTO);
     if (productDTO.getId() == null) {
       throw new BadException("Invalid id");
@@ -127,11 +132,15 @@ public class ProductController {
 
     ProductDTO result = productService.save(productDTO);
     return ResponseEntity
-            .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert( ENTITY_NAME, productDTO.getId().toString()))
-            .body(result);
+      .ok()
+      .headers(
+        HeaderUtil.createEntityUpdateAlert(
+          ENTITY_NAME,
+          productDTO.getId().toString()
+        )
+      )
+      .body(result);
   }
-
   /**
    * {@code GET  /product/search/category/:categoryId} : find the "id" category.
    *

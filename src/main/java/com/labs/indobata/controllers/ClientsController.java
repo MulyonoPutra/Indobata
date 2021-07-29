@@ -1,28 +1,24 @@
 package com.labs.indobata.controllers;
 
-import com.labs.indobata.domain.dto.CategoryDTO;
+import static com.labs.indobata.constants.ResponseConstants.DELETED_SUCCESSFULLY;
+
 import com.labs.indobata.domain.dto.ClientsDTO;
 import com.labs.indobata.domain.dto.ResponseMessages;
 import com.labs.indobata.domain.entities.Clients;
 import com.labs.indobata.exceptions.BadException;
 import com.labs.indobata.repositories.ClientsRepository;
 import com.labs.indobata.services.ClientsService;
-
-import java.net.URISyntaxException;
+import com.labs.indobata.utils.HeaderUtil;
+import com.labs.indobata.utils.ResponseUtils;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.validation.Valid;
-
-import com.labs.indobata.utils.HeaderUtil;
-import com.labs.indobata.utils.ResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import static com.labs.indobata.constants.ResponseConstants.DELETED_SUCCESSFULLY;
 
 @RestController
 @RequestMapping("/api/clients")
@@ -36,7 +32,10 @@ public class ClientsController {
 
   private final ClientsRepository clientsRepository;
 
-  public ClientsController(ClientsService clientsService, ClientsRepository clientsRepository) {
+  public ClientsController(
+    ClientsService clientsService,
+    ClientsRepository clientsRepository
+  ) {
     this.clientsService = clientsService;
     this.clientsRepository = clientsRepository;
   }
@@ -101,7 +100,6 @@ public class ClientsController {
     return ResponseUtils.response(HttpStatus.OK, DELETED_SUCCESSFULLY);
   }
 
-
   /**
    * {@code PUT  /clients/:id} : Updates an existing clients.
    *
@@ -114,8 +112,10 @@ public class ClientsController {
    */
   @PutMapping("/{id}")
   public ResponseEntity<ClientsDTO> updateClients(
-          @PathVariable(value = "id", required = false) final Long id, @Valid @RequestBody ClientsDTO clientsDTO) throws BadException {
-
+    @PathVariable(value = "id", required = false) final Long id,
+    @Valid @RequestBody ClientsDTO clientsDTO
+  )
+    throws BadException {
     log.debug("REST request to update Category : {}, {}", id, clientsDTO);
     if (clientsDTO.getId() == null) {
       throw new BadException("Invalid id");
@@ -130,8 +130,13 @@ public class ClientsController {
 
     ClientsDTO result = clientsService.save(clientsDTO);
     return ResponseEntity
-            .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert( ENTITY_NAME, clientsDTO.getId().toString()))
-            .body(result);
+      .ok()
+      .headers(
+        HeaderUtil.createEntityUpdateAlert(
+          ENTITY_NAME,
+          clientsDTO.getId().toString()
+        )
+      )
+      .body(result);
   }
 }

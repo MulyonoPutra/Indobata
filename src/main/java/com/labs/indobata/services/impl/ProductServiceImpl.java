@@ -28,10 +28,7 @@ public class ProductServiceImpl implements ProductService {
   /**
    * A Constructor
    */
-  public ProductServiceImpl(
-    ProductRepository productRepository,
-    ProductMapper productMapper
-  ) {
+  public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper) {
     this.productRepository = productRepository;
     this.productMapper = productMapper;
   }
@@ -48,16 +45,10 @@ public class ProductServiceImpl implements ProductService {
   public Optional<ProductDTO> partialUpdate(ProductDTO productDTO) {
     log.debug("Request to partially update Product : {}", productDTO);
 
-    return productRepository
-      .findById(productDTO.getId())
-      .map(
-        existingProduct -> {
-          productMapper.partialUpdate(existingProduct, productDTO);
-          return existingProduct;
-        }
-      )
-      .map(productRepository::save)
-      .map(productMapper::toDto);
+    return productRepository.findById(productDTO.getId()).map(existingProduct -> {
+      productMapper.partialUpdate(existingProduct, productDTO);
+      return existingProduct;
+    }).map(productRepository::save).map(productMapper::toDto);
   }
 
   @Override

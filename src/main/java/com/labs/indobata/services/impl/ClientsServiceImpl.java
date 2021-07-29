@@ -28,10 +28,7 @@ public class ClientsServiceImpl implements ClientsService {
   /**
    * A Constructor
    */
-  public ClientsServiceImpl(
-    ClientsRepository clientsRepository,
-    ClientsMapper clientsMapper
-  ) {
+  public ClientsServiceImpl(ClientsRepository clientsRepository, ClientsMapper clientsMapper) {
     this.clientsRepository = clientsRepository;
     this.clientsMapper = clientsMapper;
   }
@@ -48,16 +45,10 @@ public class ClientsServiceImpl implements ClientsService {
   public Optional<ClientsDTO> partialUpdate(ClientsDTO clientsDTO) {
     log.debug("Request to partially update Clients : {}", clientsDTO);
 
-    return clientsRepository
-      .findById(clientsDTO.getId())
-      .map(
-        existingClients -> {
-          clientsMapper.partialUpdate(existingClients, clientsDTO);
-          return existingClients;
-        }
-      )
-      .map(clientsRepository::save)
-      .map(clientsMapper::toDto);
+    return clientsRepository.findById(clientsDTO.getId()).map(existingClients -> {
+      clientsMapper.partialUpdate(existingClients, clientsDTO);
+      return existingClients;
+    }).map(clientsRepository::save).map(clientsMapper::toDto);
   }
 
   @Override

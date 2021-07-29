@@ -28,10 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
   /**
    * A Constructor
    */
-  public CategoryServiceImpl(
-    CategoryRepository categoryRepository,
-    CategoryMapper categoryMapper
-  ) {
+  public CategoryServiceImpl(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
     this.categoryRepository = categoryRepository;
     this.categoryMapper = categoryMapper;
   }
@@ -48,16 +45,10 @@ public class CategoryServiceImpl implements CategoryService {
   public Optional<CategoryDTO> partialUpdate(CategoryDTO categoryDTO) {
     log.debug("Request to partially update Category : {}", categoryDTO);
 
-    return categoryRepository
-      .findById(categoryDTO.getId())
-      .map(
-        existingCategory -> {
-          categoryMapper.partialUpdate(existingCategory, categoryDTO);
-          return existingCategory;
-        }
-      )
-      .map(categoryRepository::save)
-      .map(categoryMapper::toDto);
+    return categoryRepository.findById(categoryDTO.getId()).map(existingCategory -> {
+      categoryMapper.partialUpdate(existingCategory, categoryDTO);
+      return existingCategory;
+    }).map(categoryRepository::save).map(categoryMapper::toDto);
   }
 
   @Override
