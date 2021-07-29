@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "clients")
+@Table(name = "feedback")
 public class Feedback implements Serializable {
 
   private static final long serialVersionUID = 1L;

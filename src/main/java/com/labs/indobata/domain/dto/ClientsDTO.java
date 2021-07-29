@@ -4,13 +4,15 @@ import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientsDTO {
+public class ClientsDTO implements Serializable  {
 
   private Long id;
 

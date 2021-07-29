@@ -1,9 +1,17 @@
 package com.labs.indobata.domain.entities;
 
+import lombok.*;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
@@ -17,4 +25,6 @@ public class Category implements Serializable {
   @NotNull
   @Column(name = "name", nullable = false)
   private String name;
+
+
 }

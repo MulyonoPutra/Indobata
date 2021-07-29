@@ -3,6 +3,7 @@ package com.labs.indobata.domain.dto;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import lombok.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -10,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class FeedbackDTO {
+public class FeedbackDTO implements Serializable {
 
   private Long id;
 

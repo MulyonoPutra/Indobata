@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @EnableAutoConfiguration
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class})
 public interface ProductMapper extends EntityMapper<ProductDTO, Product> {
   @Mapping(
-    target = "category_post",
+    target = "category_product",
     source = "category_product",
     qualifiedByName = "id"
   )
