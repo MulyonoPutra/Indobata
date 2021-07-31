@@ -1,7 +1,7 @@
 ## Indobata Rest API Documentation
 
-## Example 1: 
-**Show Product**
+## Endpoint Product: 
+**Show List of Product**
 ----
   Returns json data about a list of product.
 
