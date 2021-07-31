@@ -147,9 +147,9 @@ public class ProductController {
    * @param categoryId the id of the productDTO to delete.
    * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
    */
-  //    @GetMapping("/search/category/{categoryId}")
-  //    public List<Product> getProductByCategory(@PathVariable("categoryId") Long categoryId) {
-  //        return productService.findProductByCategoryId(categoryId);
-  //    }
+      @GetMapping("/search/category/{categoryId}")
+      public List<Product> getProductByCategory(@PathVariable("categoryId") Long categoryId) {
+          return productService.findProductByCategoryId(categoryId);
+      }
 
 }

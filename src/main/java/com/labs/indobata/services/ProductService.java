@@ -46,4 +46,11 @@ public interface ProductService {
    * @param id the id of the entity.
    */
   void delete(Long id);
+
+  /**
+   * Find Product Data by CategoryId
+   *
+   * @param categoryId the id of the entity.
+   */
+  List<Product> findProductByCategoryId(Long categoryId);
 }
