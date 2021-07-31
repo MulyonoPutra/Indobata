@@ -36,6 +36,10 @@
         "price": "15000",
         "images":"",
         "imagesContentType": "image/png",
+        "category_product": {
+            "id": 1,
+            "name": "Genteng Beton"
+        }
     }`
  
 * **Error Response:**
@@ -55,7 +59,7 @@
 
 * **Sample Call:**
 
-  ```typescript
+  ```typescript:
       getAllProduct(): Observable<Product[]> {
         return this.http.get<any>(environment.baseEndpoint + 'api/product');
       }
