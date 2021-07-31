@@ -17,7 +17,7 @@
 
    **Required:**
  
-   `id=[integer]`
+   None
 
 * **Data Params**
 
