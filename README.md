@@ -1,32 +1,29 @@
-## Indobata Rest API Documentation
+# Indobata API Documentation
 
-## Endpoint Product: 
-**Show List of Product**
-----
-  Returns json data about a list of product.
+## Usage
 
-* **URL**
+Base URL : `http://localhost:8080/`
 
-  /api/product
+### Endpoint
 
-* **Method:**
+| Endpoint      | Description                                 | Parameter | Method |
+| ---------     | ------------------------------------------- | --------- | ------ |
+| `/product`    | Only the start page shows basic information | No        | GET    |
+| `/product`    | Only the start page shows basic information | No        | POST   |
+| `/product`    | Only the start page shows basic information | No        | DELETE |
+| `/product`    | Only the start page shows basic information | No        | PUT    |
 
-  `GET`
-  
-*  **URL Params**
+### Example
 
-   **Required:**
- 
-   None
+#### Request
 
-* **Data Params**
+```curl
+curl -XGET 'http://localhost:8080/product'
+```
 
-  None
+#### Response
 
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `    
+```json
     {
         "id": 4,
         "productName": "Kanstin White",
@@ -40,22 +37,23 @@
             "id": 1,
             "name": "Genteng Beton"
         }
-    }`
- 
-* **Error Response:**
+    }
+```
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{
-    "timestamp": "2021-07-31T16:37:02.728+00:00",
-    "status": 404,
-    "error": "Not Found",
-    "path": "/api/products"
-}`
+#### Error Response
+```json
+    {
+        "timestamp": "2021-07-31T16:37:02.728+00:00",
+        "status": 404,
+        "error": "Not Found",
+        "path": "/api/products"
+    }
+```
+OR
 
-  OR
+* **Code:** 401 UNAUTHORIZED <br />
+**Content:** `{ error : "You are unauthorized to make this request." }`
 
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
 
 * **Sample Call:**
 
@@ -64,3 +62,6 @@
         return this.http.get<any>(environment.baseEndpoint + 'api/product');
       }
   ```
+
+## Additional Information
+-
