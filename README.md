@@ -32,11 +32,11 @@ Base URL : `http://localhost:8080/`
 ### Endpoint
 
 | Endpoint      | Description                                 | Parameter | Method |
-| ---------     | ------------------------------------------- | --------- | ------ |
-| `/product`    | Only the start page shows basic information | No        | GET    |
-| `/product`    | Only the start page shows basic information | No        | POST   |
-| `/product`    | Only the start page shows basic information | No        | DELETE |
-| `/product`    | Only the start page shows basic information | No        | PUT    |
+| ----------------- | ------------------------------------------- | --------- | ------ |
+| `/product`        | Only the start page shows basic information | No        | GET    |
+| `/product`        | Only the start page shows basic information | No        | POST   |
+| `/product/{{id}}` | Only the start page shows basic information | No        | DELETE |
+| `/product{{id}}`  | Only the start page shows basic information | No        | PUT    |
 
 ### Example
 
