@@ -1,5 +1,30 @@
 # Indobata API Documentation
 
+## Development
+
+1. Clone this repository
+    ```
+    git clone https://github.com/MulyonoPutra/Indobata.git
+    ```
+
+2. Change current directory to this repository folder
+    ```
+    cd Indobata
+    ```
+    
+3. Install dependencies
+    ```
+    ./mvnw or mvnw
+    ```
+    
+4. Run the server
+    
+    - Development mode
+        ```
+        mvn spring-boot:run
+        ```
+    
+
 ## Usage
 
 Base URL : `http://localhost:8080/`
