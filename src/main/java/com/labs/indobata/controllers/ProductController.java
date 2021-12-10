@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * REST controller for managing {@link com.labs.indobata.domain.entities.Product}.
  */
+@CrossOrigin("http://localhost:4200/, http://localhost:4300/*")
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {

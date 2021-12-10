@@ -21,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("http://localhost:4200/, http://localhost:4300/*")
 @RestController
 @RequestMapping("/api/category")
 public class CategoryController {
